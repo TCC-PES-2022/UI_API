@@ -609,10 +609,3 @@ int ui_api_debug(string txt)
 	return 1;
 
 }
-
-int quadrado(int a)
-
-{
-
-	return a * a;
-}

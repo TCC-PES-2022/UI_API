@@ -119,7 +119,6 @@ st_ui_aut* verificar_autenticacao_Controler(uint8_t cmd_controle, st_ui_aut* val
 int iniciar_UI_interface(st_ui_image* val, st_ui_aut* val2);
 int kill_UI_interface(st_ui_image* val);
 uint8_t verificarFilas(st_ui_image* val, st_ui_aut* val2, uint8_t thread);
-int quadrado(int a);
 //DEBUG
 
 int ui_api_debug(string txt);
