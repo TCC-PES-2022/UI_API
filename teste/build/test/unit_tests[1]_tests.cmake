@@ -1,0 +1,5 @@
+add_test([=[example.add]=]  C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/teste/build/bin/Debug/unit_tests.exe [==[--gtest_filter=example.add]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[example.add]=]  PROPERTIES WORKING_DIRECTORY C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/teste/build/test SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==] LABELS unit)
+add_test([=[example.subtract]=]  C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/teste/build/bin/Debug/unit_tests.exe [==[--gtest_filter=example.subtract]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[example.subtract]=]  PROPERTIES WORKING_DIRECTORY C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/teste/build/test SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==] LABELS unit)
+set(  unit_tests_TESTS example.add example.subtract)

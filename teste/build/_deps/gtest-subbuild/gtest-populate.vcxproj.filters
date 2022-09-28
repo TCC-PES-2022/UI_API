@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\afons\source\repos\TCC_Embraer_UIAPI\p2\teste\build\_deps\gtest-subbuild\CMakeFiles\ed60a53546f1f2afd230cd224447a5ea\gtest-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\afons\source\repos\TCC_Embraer_UIAPI\p2\teste\build\_deps\gtest-subbuild\CMakeFiles\ed60a53546f1f2afd230cd224447a5ea\gtest-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\afons\source\repos\TCC_Embraer_UIAPI\p2\teste\build\_deps\gtest-subbuild\CMakeFiles\ed60a53546f1f2afd230cd224447a5ea\gtest-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\afons\source\repos\TCC_Embraer_UIAPI\p2\teste\build\_deps\gtest-subbuild\CMakeFiles\ed60a53546f1f2afd230cd224447a5ea\gtest-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\afons\source\repos\TCC_Embraer_UIAPI\p2\teste\build\_deps\gtest-subbuild\CMakeFiles\ed60a53546f1f2afd230cd224447a5ea\gtest-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\afons\source\repos\TCC_Embraer_UIAPI\p2\teste\build\_deps\gtest-subbuild\CMakeFiles\ed60a53546f1f2afd230cd224447a5ea\gtest-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\afons\source\repos\TCC_Embraer_UIAPI\p2\teste\build\_deps\gtest-subbuild\CMakeFiles\ed60a53546f1f2afd230cd224447a5ea\gtest-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\afons\source\repos\TCC_Embraer_UIAPI\p2\teste\build\_deps\gtest-subbuild\CMakeFiles\ed60a53546f1f2afd230cd224447a5ea\gtest-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\afons\source\repos\TCC_Embraer_UIAPI\p2\teste\build\_deps\gtest-subbuild\CMakeFiles\2e8da92abcf2c589da9a282b576a2dcc\gtest-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\afons\source\repos\TCC_Embraer_UIAPI\p2\teste\build\_deps\gtest-subbuild\CMakeFiles\d5402649298a3684a192404f48ad7efa\gtest-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\afons\source\repos\TCC_Embraer_UIAPI\p2\teste\build\_deps\gtest-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\afons\source\repos\TCC_Embraer_UIAPI\p2\teste\build\_deps\gtest-subbuild\CMakeFiles\gtest-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{014F52C0-40B2-32AE-B2C5-5C19C23B2357}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

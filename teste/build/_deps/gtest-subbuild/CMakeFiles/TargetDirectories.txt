@@ -1,0 +1,3 @@
+C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/teste/build/_deps/gtest-subbuild/CMakeFiles/gtest-populate.dir
+C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/teste/build/_deps/gtest-subbuild/CMakeFiles/ALL_BUILD.dir
+C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/teste/build/_deps/gtest-subbuild/CMakeFiles/ZERO_CHECK.dir
