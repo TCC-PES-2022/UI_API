@@ -548,21 +548,21 @@ uint8_t verificarFilas(st_ui_image* val, st_ui_aut *val2,  uint8_t thread)
 			tmp = fila_imagem_Controler.front();
 			memcpy(val, &tmp, sizeof(st_ui_image));
 			fila_imagem_Controler.pop();
-			return 1;
+			return RP_fila_imagem;
 		}
 		if (!fila_transf_imagem_Controler.empty())
 		{
 			tmp = fila_transf_imagem_Controler.front();
 			memcpy(val, &tmp, sizeof(st_ui_image));
 			fila_transf_imagem_Controler.pop();
-			return 2;
+			return RP_fila_transf_imagem;
 		}
 		if (!fila_autent_Controler.empty())
 		{
 			tmp2 = fila_autent_Controler.front();
 			memcpy(val2, &tmp2, sizeof(st_ui_aut));
 			fila_autent_Controler.pop();
-			return 3;
+			return RP_fila_autenticacao;
 		}
 	}
 	else
@@ -572,21 +572,21 @@ uint8_t verificarFilas(st_ui_image* val, st_ui_aut *val2,  uint8_t thread)
 			tmp = fila_imagem_GUI.front();
 			memcpy(val, &tmp, sizeof(st_ui_image));
 			fila_imagem_GUI.pop();
-			return 1;
+			return RP_fila_imagem;
 		}
 		if (!fila_transf_imagem_GUI.empty())
 		{
 			tmp = fila_transf_imagem_GUI.front();
 			memcpy(val, &tmp, sizeof(st_ui_image));
 			fila_transf_imagem_GUI.pop();
-			return 2;
+			return RP_fila_transf_imagem;
 		}
 		if (!fila_autent_GUI.empty())
 		{
 			tmp2 = fila_autent_GUI.front();
 			memcpy(val2, &tmp2, sizeof(st_ui_aut));
 			fila_autent_GUI.pop();
-			return 3;
+			return RP_fila_autenticacao;
 		}
 	}
 

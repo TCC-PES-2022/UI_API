@@ -17,7 +17,11 @@
 #define UI__GUI 0
 #define UI__CTL 1
 using namespace std;
-
+enum UI_RESP {
+	RP_fila_imagem = 1,
+	RP_fila_transf_imagem = 2,
+	RP_fila_autenticacao = 3,
+};
 enum  UI_INTERFACE {
 
 	UI_Falha = 4,

@@ -31,7 +31,7 @@ void* GUI(void* arg)
            aut_gui = *verificar_autenticacao_GUI(val_teste, &aut_gui);
         }
         uint8_t val = verificarFilas(&img_gui,&aut_gui, UI__CTL);
-        if (val == 1) {
+        if (val == RP_fila_imagem) {
             std::cout << "+[GUI] Cmd Recebido " << unsigned(img_gui.byte_controle) << endl;
             std::cout << "+[GUI] Cmd Anterior " << unsigned(img_gui.byte_controle_anterior) << endl;
             usleep(2000);
