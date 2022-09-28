@@ -1,3 +1,0 @@
-example.add 2 0.0204639
-example.subtract 2 0.0196269
----

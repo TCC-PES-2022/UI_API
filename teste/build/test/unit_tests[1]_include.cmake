@@ -1,5 +1,0 @@
-if(EXISTS "C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/teste/build/test/unit_tests[1]_tests.cmake")
-  include("C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/teste/build/test/unit_tests[1]_tests.cmake")
-else()
-  add_test(unit_tests_NOT_BUILT unit_tests_NOT_BUILT)
-endif()

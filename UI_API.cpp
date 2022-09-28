@@ -542,7 +542,7 @@ uint8_t verificarFilas(st_ui_image* val, st_ui_aut *val2,  uint8_t thread)
 {
 	st_ui_image tmp;
 	st_ui_aut tmp2;
-	if (thread == 0) {
+	if (thread == UI__GUI) {
 		if (!fila_imagem_Controler.empty())
 		{
 			tmp = fila_imagem_Controler.front();

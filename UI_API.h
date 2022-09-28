@@ -14,8 +14,10 @@
 #define TAM_LOG 20
 
 #define DEBUG_UI_API_
-
+#define UI__GUI 0
+#define UI__CTL 1
 using namespace std;
+
 enum  UI_INTERFACE {
 
 	UI_Falha = 4,

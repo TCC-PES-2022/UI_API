@@ -30,7 +30,7 @@ void* GUI(void* arg)
            //img_gui = *transferir_imagem_GUI(val_teste, &img_gui);
            aut_gui = *verificar_autenticacao_GUI(val_teste, &aut_gui);
         }
-        uint8_t val = verificarFilas(&img_gui,&aut_gui, 1);
+        uint8_t val = verificarFilas(&img_gui,&aut_gui, UI__CTL);
         if (val == 1) {
             std::cout << "+[GUI] Cmd Recebido " << unsigned(img_gui.byte_controle) << endl;
             std::cout << "+[GUI] Cmd Anterior " << unsigned(img_gui.byte_controle_anterior) << endl;
@@ -77,7 +77,7 @@ void* CTR(void* arg)
     pthread_detach(pthread_self());
     sleep(1);
     while (1) {
-        val = verificarFilas(&img_controler, &aut_controler, 0); // se val > 0 -> Atualizou a estrutura toda
+        val = verificarFilas(&img_controler, &aut_controler, UI__GUI); // se val > 0 -> Atualizou a estrutura toda
         if (val == 1) {
             std::cout << "+[CTL] Cmd Recebido " << unsigned(img_controler.byte_controle) << endl;
             std::cout << "+[CTL] Cmd Processando... " << endl;
