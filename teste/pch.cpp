@@ -1,4 +1,8 @@
-#include "UI_API.h"
+//
+// pch.cpp
+//
+
+#include "pch.h"
 #include <queue>
 
 using namespace std;
@@ -11,7 +15,7 @@ queue<st_ui_image> fila_transf_imagem_Controler;
 queue<st_ui_aut> fila_autent_GUI;
 queue<st_ui_aut> fila_autent_Controler;
 
-pthread_mutex_t lock_print;
+//pthread_mutex_t lock_print;
 
 ///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
 ///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\
@@ -45,7 +49,7 @@ st_ui_image* carregar_imagem_GUI(uint8_t cmd_controle, st_ui_image* val)
 		break;
 	case UI_Aguardar:
 		break;
-	case UI_Falha: 
+	case UI_Falha:
 		ui_api_debug("+[GUI][MQ] : Comando UI_Falha");
 		tmp.byte_controle = cmd_controle;
 		break;
@@ -98,59 +102,59 @@ st_ui_image* carregar_imagem_Controler(uint8_t cmd_controle, st_ui_image* val)
 	static st_ui_image tmp;
 	static uint8_t cmd_anterior = 0;
 
-		switch (cmd_controle)
-		{
-		case UI_Falha:
-			tmp = *val;
-			tmp.byte_controle = cmd_controle;
-			ui_api_debug("+[CTL][MQ] : Comando UI_Falha");
-			fila_imagem_GUI.push(tmp);
-			tmp.byte_controle = UI_Aguardar;
-			break;
-		case UI_Ok:
-			tmp = *val;
-			tmp.byte_controle = cmd_controle;
-			ui_api_debug("+[CTL][MQ] : Comando UI_Ok");
-			fila_imagem_GUI.push(tmp);
-			tmp.byte_controle = UI_Aguardar;
-			break;
-		case UI_Timeout:
-			break;
-		case UI_Aguardar:
-			break;
-		case UI_Null: // Reseta MQ
-			tmp = *val;
-			tmp.byte_controle = cmd_controle;
-			ui_api_debug("+[CTL][MQ] : Comando UI_Null - MQ carregar_imagem_Controler Resetada");
-			break;
-		case UI_Carregar_Imagem:
-			ui_api_debug("+[CTL][MQ] : Comando UI_Carregar_Imagem");
-			tmp = *val;
-			tmp.byte_controle = cmd_controle;
-			fila_imagem_GUI.push(tmp);
-			tmp.byte_controle = UI_Aguardar;
-			break;
-		case UI_Informacoes_Imagem:
-			ui_api_debug("+[CTL][MQ] : Comando UI_Informacoes_Imagem");
-			tmp = *val;
-			tmp.byte_controle = cmd_controle;
-			fila_imagem_GUI.push(tmp);
-			tmp.byte_controle = UI_Aguardar;
-			break;
-		case UI_Cancelar:
-			ui_api_debug("+[CTL][MQ] : Comando UI_Cancelar");
-			tmp = *val;
-			tmp.byte_controle = cmd_controle;
-			fila_imagem_GUI.push(tmp);
-			tmp.byte_controle = UI_Aguardar;
-			break;
-		default:
-			//Caso cmd_controle nao contemplado
-			tmp.byte_controle = UI_Null;
-			tmp.byte_controle_anterior = UI_Null;
-			break;
-		}
-	
+	switch (cmd_controle)
+	{
+	case UI_Falha:
+		tmp = *val;
+		tmp.byte_controle = cmd_controle;
+		ui_api_debug("+[CTL][MQ] : Comando UI_Falha");
+		fila_imagem_GUI.push(tmp);
+		tmp.byte_controle = UI_Aguardar;
+		break;
+	case UI_Ok:
+		tmp = *val;
+		tmp.byte_controle = cmd_controle;
+		ui_api_debug("+[CTL][MQ] : Comando UI_Ok");
+		fila_imagem_GUI.push(tmp);
+		tmp.byte_controle = UI_Aguardar;
+		break;
+	case UI_Timeout:
+		break;
+	case UI_Aguardar:
+		break;
+	case UI_Null: // Reseta MQ
+		tmp = *val;
+		tmp.byte_controle = cmd_controle;
+		ui_api_debug("+[CTL][MQ] : Comando UI_Null - MQ carregar_imagem_Controler Resetada");
+		break;
+	case UI_Carregar_Imagem:
+		ui_api_debug("+[CTL][MQ] : Comando UI_Carregar_Imagem");
+		tmp = *val;
+		tmp.byte_controle = cmd_controle;
+		fila_imagem_GUI.push(tmp);
+		tmp.byte_controle = UI_Aguardar;
+		break;
+	case UI_Informacoes_Imagem:
+		ui_api_debug("+[CTL][MQ] : Comando UI_Informacoes_Imagem");
+		tmp = *val;
+		tmp.byte_controle = cmd_controle;
+		fila_imagem_GUI.push(tmp);
+		tmp.byte_controle = UI_Aguardar;
+		break;
+	case UI_Cancelar:
+		ui_api_debug("+[CTL][MQ] : Comando UI_Cancelar");
+		tmp = *val;
+		tmp.byte_controle = cmd_controle;
+		fila_imagem_GUI.push(tmp);
+		tmp.byte_controle = UI_Aguardar;
+		break;
+	default:
+		//Caso cmd_controle nao contemplado
+		tmp.byte_controle = UI_Null;
+		tmp.byte_controle_anterior = UI_Null;
+		break;
+	}
+
 	return &tmp;
 }
 
@@ -332,25 +336,25 @@ st_ui_image* informacoes_imagem(uint8_t cmd_controle, st_ui_image* val)
 ///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
 ///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\
 
-int iniciar_UI_interface(st_ui_image* val, st_ui_aut* val2, uint8_t thread)
+int iniciar_UI_interface(st_ui_image* val, st_ui_aut* val2)
 {
-    //Função de inicialização da UI_Interface
-    // stats		-> Se inicialização ocorreu com sucesso, retorna 1
-    int stats = 0;
-    memset(val, 0x0, sizeof(st_ui_image));
-    if(thread == UI__GUI){
-        carregar_imagem_GUI(UI_Null, val);
-        transferir_imagem_GUI(UI_Null, val);
-        verificar_autenticacao_GUI(UI_Null, val2);
-    }
-    else{
-        verificar_autenticacao_Controler(UI_Null, val2);
-        carregar_imagem_Controler(UI_Null, val);
-        transferir_imagem_Controler(UI_Null, val);
-    }
-    stats = 1;
+	//Função de inicialização da UI_Interface
+	// stats		-> Se inicialização ocorreu com sucesso, retorna 1
+	int stats = 0;
+	memset(val, 0x0, sizeof(st_ui_image));
 
-    return stats;
+	ui_api_debug("+[GUI] Inicializando UI API... ");
+	carregar_imagem_GUI(UI_Null, val);
+	transferir_imagem_GUI(UI_Null, val);
+	carregar_imagem_Controler(UI_Null, val);
+	transferir_imagem_Controler(UI_Null, val);
+	verificar_autenticacao_GUI(UI_Null, val2);
+	verificar_autenticacao_Controler(UI_Null, val2);
+
+
+	stats = 1;
+
+	return stats;
 }
 
 ///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
@@ -538,11 +542,11 @@ st_ui_aut* verificar_autenticacao_Controler(uint8_t cmd_controle, st_ui_aut* val
 ///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\
 
 
-uint8_t verificarFilas(st_ui_image* val, st_ui_aut *val2,  uint8_t thread)
+uint8_t verificarFilas(st_ui_image* val, st_ui_aut* val2, uint8_t thread)
 {
 	st_ui_image tmp;
 	st_ui_aut tmp2;
-    if (thread == UI__CTL) {
+	if (thread == UI__GUI) {
 		if (!fila_imagem_Controler.empty())
 		{
 			tmp = fila_imagem_Controler.front();
@@ -590,7 +594,7 @@ uint8_t verificarFilas(st_ui_image* val, st_ui_aut *val2,  uint8_t thread)
 		}
 	}
 
-return 0;
+	return 0;
 }
 
 ///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
@@ -601,7 +605,7 @@ int ui_api_debug(string txt)
 {
 #ifdef DEBUG_UI_API
 	pthread_mutex_lock(&lock_print);
-	std::cout  << txt << endl;
+	std::cout << txt << endl;
 	pthread_mutex_unlock(&lock_print);
 #else
 
@@ -609,3 +613,7 @@ int ui_api_debug(string txt)
 	return 1;
 
 }
+int quad(int v) {
+	return (v * v);
+}
+

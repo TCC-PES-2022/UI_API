@@ -1,9 +1,17 @@
+//
+// pch.h
+//
+
 #pragma once
+
+#include "gtest/gtest.h"
+#pragma once
+
 #include <stdio.h>
-//#include <cstdint>
+#include <cstdint>
 #include <stdio.h>
-#include <string.h>
 #include <iostream>
+#include <mutex>
 #include <queue>
 #include <string>		// Necessário para usar strings
 
@@ -13,9 +21,9 @@
 #define TIMER_THREAD 500 // 500 ms
 #define TAM_LOG 20
 
-#define DEBUG_UI_API
-#define UI__GUI 1
-#define UI__CTL 0
+#define DEBUG_UI_API_
+#define UI__GUI 0
+#define UI__CTL 1
 using namespace std;
 enum UI_RESP {
 	RP_fila_imagem = 1,
@@ -68,7 +76,7 @@ typedef struct st_ui_image {
 
 // Estrutura Das informações sobre a conexao
 typedef struct st_info_conexao {
-	
+
 
 }st_info_conexao_ty;
 // Estrutura Geral da Conexao
@@ -116,9 +124,10 @@ st_ui_aut* verificar_autenticacao_GUI(uint8_t cmd_controle, st_ui_aut* val);
 st_ui_aut* verificar_autenticacao_Controler(uint8_t cmd_controle, st_ui_aut* val);
 
 //
-int iniciar_UI_interface(st_ui_image* val, st_ui_aut* val2, uint8_t thread);
+int iniciar_UI_interface(st_ui_image* val, st_ui_aut* val2);
 int kill_UI_interface(st_ui_image* val);
 uint8_t verificarFilas(st_ui_image* val, st_ui_aut* val2, uint8_t thread);
+int quad(int v);
 //DEBUG
 
 int ui_api_debug(string txt);

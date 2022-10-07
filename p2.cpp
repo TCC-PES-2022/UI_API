@@ -15,7 +15,7 @@ void* GUI(void* arg)
     uint8_t val_teste = 0;
     static st_ui_image img_gui;
     static st_ui_aut aut_gui;
-    if (iniciar_UI_interface(&img_gui,&aut_gui)) {
+    if (iniciar_UI_interface(&img_gui,&aut_gui,UI__GUI)) {
         //img_gui.byte_controle = UI_Carregar_Imagem; // APENAS PARA TESTES
         aut_gui.byte_controle = UI_EnviarLogin; // APENAS PARA TESTES
         val_teste = UI_EnviarLogin;
@@ -30,7 +30,7 @@ void* GUI(void* arg)
            //img_gui = *transferir_imagem_GUI(val_teste, &img_gui);
            aut_gui = *verificar_autenticacao_GUI(val_teste, &aut_gui);
         }
-        uint8_t val = verificarFilas(&img_gui,&aut_gui, UI__CTL);
+        uint8_t val = verificarFilas(&img_gui,&aut_gui, UI__GUI);
         if (val == RP_fila_imagem) {
             std::cout << "+[GUI] Cmd Recebido " << unsigned(img_gui.byte_controle) << endl;
             std::cout << "+[GUI] Cmd Anterior " << unsigned(img_gui.byte_controle_anterior) << endl;
@@ -75,9 +75,11 @@ void* CTR(void* arg)
     uint8_t env_resp = 0;
     uint8_t resposta = UI_Ok;
     pthread_detach(pthread_self());
+
+    iniciar_UI_interface(&img_controler,&aut_controler,UI__CTL);
     sleep(1);
     while (1) {
-        val = verificarFilas(&img_controler, &aut_controler, UI__GUI); // se val > 0 -> Atualizou a estrutura toda
+        val = verificarFilas(&img_controler, &aut_controler, UI__CTL); // se val > 0 -> Atualizou a estrutura toda
         if (val == 1) {
             std::cout << "+[CTL] Cmd Recebido " << unsigned(img_controler.byte_controle) << endl;
             std::cout << "+[CTL] Cmd Processando... " << endl;
