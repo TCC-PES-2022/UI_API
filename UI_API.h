@@ -13,7 +13,7 @@
 #define TIMER_THREAD 500 // 500 ms
 #define TAM_LOG 20
 
-#define DEBUG_UI_API_
+#define DEBUG_UI_API
 #define UI__GUI 1
 #define UI__CTL 0
 using namespace std;
@@ -30,16 +30,21 @@ enum  UI_INTERFACE {
 	UI_Timeout = 2,
 	UI_Aguardar = 3,
 	UI_Null = 0,
+    //Imagem
 	UI_Iniciar_Transferencia = 5,
 	UI_Andamento_Transferencia = 6,
 	UI_Cancelar = 7,
 	UI_Fim_Transferencia = 8,
 	UI_Carregar_Imagem = 9,
 	UI_Informacoes_Imagem = 10,
+    //Autenticacao
 	UI_EnviarLogin = 11,
-    UI_ListarConexoes = 12,
-    UI_EstabelecerConexao = 13,
-    UI_EncerrarConexao = 14,
+    UI_Cadastrar = 12,
+    UI_RemoverUsuario = 13,
+    //Conexao
+    UI_ListarConexoes = 14,
+    UI_EstabelecerConexao = 15,
+    UI_EncerrarConexao = 16,
 	//
 	UI_TOT_ESTADOS,
 };

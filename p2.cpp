@@ -19,12 +19,13 @@ void* GUI(void* arg)
 
     if (iniciar_UI_interface(&img_gui,&aut_gui,&con_gui,UI__GUI)) {
         //img_gui.byte_controle = UI_Carregar_Imagem; // APENAS PARA TESTES
-        //aut_gui.byte_controle = UI_EnviarLogin; // APENAS PARA TESTES
-        con_gui.byte_controle = UI_EncerrarConexao;
-        val_teste = UI_EncerrarConexao;
+        aut_gui.byte_controle = UI_Cadastrar; // APENAS PARA TESTES
+        //con_gui.byte_controle = UI_EncerrarConexao;
+        val_teste = UI_RemoverUsuario;
 //        memcpy(aut_gui.autenticao.login,"Afonso",sizeof("Afonso"));
 //        memcpy(aut_gui.autenticao.senha,"123",sizeof("123"));
     }
+    sleep(1);
     pthread_detach(pthread_self());
     while (1)
     {
@@ -34,8 +35,8 @@ void* GUI(void* arg)
             std::cout << "+[GUI] Cmd Enviado " << unsigned(val_teste) << endl;
            //img_gui = *carregar_imagem_GUI(val_teste, &img_gui);
            //img_gui = *transferir_imagem_GUI(val_teste, &img_gui);
-           //aut_gui = *verificar_autenticacao_GUI(val_teste, &aut_gui);
-            con_gui = *conexoes_GUI(val_teste,&con_gui);
+           aut_gui = *verificar_autenticacao_GUI(val_teste, &aut_gui);
+           // con_gui = *conexoes_GUI(val_teste,&con_gui);
         }
         uint8_t val = verificarFilas(&img_gui,&aut_gui,&con_gui, UI__GUI);
         if (val == RP_fila_imagem) {

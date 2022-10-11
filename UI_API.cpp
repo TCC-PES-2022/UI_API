@@ -484,6 +484,22 @@ st_ui_aut* verificar_autenticacao_GUI(uint8_t cmd_controle, st_ui_aut* val)
         tmp.byte_controle_anterior = cmd_controle;
         ui_api_debug("+[GUI][MQ] : Comando UI_Null - MQ verificar_autenticacao_GUI Resetada");
         break;
+    case UI_Cadastrar:
+        ui_api_debug("+[GUI][MQ] : Comando UI_Cadastrar");
+        tmp = *val;
+        tmp.byte_controle = cmd_controle;
+        tmp.byte_controle_anterior = cmd_controle;
+        fila_autent_Controler.push(tmp);
+        tmp.byte_controle = UI_Aguardar;
+        break;
+    case UI_RemoverUsuario:
+        ui_api_debug("+[GUI][MQ] : Comando UI_RemoverUsuario");
+        tmp = *val;
+        tmp.byte_controle = cmd_controle;
+        tmp.byte_controle_anterior = cmd_controle;
+        fila_autent_Controler.push(tmp);
+        tmp.byte_controle = UI_Aguardar;
+        break;
     default:
         break;
     }
