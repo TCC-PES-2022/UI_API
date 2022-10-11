@@ -13,7 +13,7 @@
 #define TIMER_THREAD 500 // 500 ms
 #define TAM_LOG 20
 
-#define DEBUG_UI_API
+#define DEBUG_UI_API_
 #define UI__GUI 1
 #define UI__CTL 0
 using namespace std;
@@ -21,6 +21,7 @@ enum UI_RESP {
 	RP_fila_imagem = 1,
 	RP_fila_transf_imagem = 2,
 	RP_fila_autenticacao = 3,
+    RP_fila_conexao = 4,
 };
 enum  UI_INTERFACE {
 
@@ -36,6 +37,9 @@ enum  UI_INTERFACE {
 	UI_Carregar_Imagem = 9,
 	UI_Informacoes_Imagem = 10,
 	UI_EnviarLogin = 11,
+    UI_ListarConexoes = 12,
+    UI_EstabelecerConexao = 13,
+    UI_EncerrarConexao = 14,
 	//
 	UI_TOT_ESTADOS,
 };
@@ -74,9 +78,10 @@ typedef struct st_info_conexao {
 // Estrutura Geral da Conexao
 typedef struct st_ui_conexao {
 
-	uint8_t byte_controle;
+    uint8_t byte_controle;
+    uint8_t byte_controle_anterior;
 	st_info_conexao info_conexao;
-}st_ui_conexao_ty;
+}st_ui_conexao;
 
 ///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
 ///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\
@@ -105,20 +110,17 @@ st_ui_image* carregar_imagem_Controler(uint8_t cmd_controle, st_ui_image* val);
 
 st_ui_image* transferir_imagem_GUI(uint8_t cmd_controle, st_ui_image* val);
 st_ui_image* transferir_imagem_Controler(uint8_t cmd_controle, st_ui_image* val);
-st_ui_image* informacoes_imagem(uint8_t cmd_controle, st_ui_image* val);
+
 //Funções referentes a Conexão
-st_info_conexao* listar_conexoes(uint8_t cmd_controle, st_info_conexao* val);
-st_info_conexao* estabelecer_conexao(uint8_t cmd_controle, st_info_conexao* val);
-st_info_conexao* encerrar_conexao(uint8_t cmd_controle, st_info_conexao* val);
-st_info_conexao* verificar_conexao(uint8_t cmd_controle, st_info_conexao* val);
+st_ui_conexao* conexoes_GUI(uint8_t cmd_controle, st_ui_conexao* val);
+st_ui_conexao* conexoes_Controler(uint8_t cmd_controle, st_ui_conexao* val);
 //Funções referentes a Autenticação
 st_ui_aut* verificar_autenticacao_GUI(uint8_t cmd_controle, st_ui_aut* val);
 st_ui_aut* verificar_autenticacao_Controler(uint8_t cmd_controle, st_ui_aut* val);
 
 //
-int iniciar_UI_interface(st_ui_image* val, st_ui_aut* val2, uint8_t thread);
-int kill_UI_interface(st_ui_image* val);
-uint8_t verificarFilas(st_ui_image* val, st_ui_aut* val2, uint8_t thread);
+int iniciar_UI_interface(st_ui_image* val, st_ui_aut* val2,st_ui_conexao *val3, uint8_t thread);
+uint8_t verificarFilas(st_ui_image* val, st_ui_aut* val2,st_ui_conexao *val3, uint8_t thread);
 //DEBUG
 
 int ui_api_debug(string txt);

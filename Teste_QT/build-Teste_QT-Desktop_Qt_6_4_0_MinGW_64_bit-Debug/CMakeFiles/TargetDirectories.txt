@@ -1,0 +1,9 @@
+C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/Teste_QT/build-Teste_QT-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/mylib.dir
+C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/Teste_QT/build-Teste_QT-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/Teste_UI_API.dir
+C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/Teste_QT/build-Teste_QT-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/test.dir
+C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/Teste_QT/build-Teste_QT-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/Teste_QT/build-Teste_QT-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/Teste_QT/build-Teste_QT-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/mylib_autogen_timestamp_deps.dir
+C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/Teste_QT/build-Teste_QT-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/mylib_autogen.dir
+C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/Teste_QT/build-Teste_QT-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/Teste_UI_API_autogen_timestamp_deps.dir
+C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/Teste_QT/build-Teste_QT-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/Teste_UI_API_autogen.dir

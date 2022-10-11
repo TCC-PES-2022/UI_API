@@ -1,0 +1,105 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Teste_UI_API",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Teste_UI_API::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Teste_UI_API-Debug-46b216648ecc57cff743.json",
+					"name" : "Teste_UI_API",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Teste_UI_API_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Teste_UI_API_autogen-Debug-0c720103fd73738f41b3.json",
+					"name" : "Teste_UI_API_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Teste_UI_API_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Teste_UI_API_autogen_timestamp_deps-Debug-2d30f5b0b4bf015d9d0e.json",
+					"name" : "Teste_UI_API_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mylib::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mylib-Debug-01450d0266f16dda6329.json",
+					"name" : "mylib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mylib_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mylib_autogen-Debug-4ba591395e18d8b6d58c.json",
+					"name" : "mylib_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mylib_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mylib_autogen_timestamp_deps-Debug-96f5fed80319d3e57fe0.json",
+					"name" : "mylib_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/Teste_QT/build-Teste_QT-Desktop_Qt_6_4_0_MinGW_64_bit-Debug",
+		"source" : "C:/Users/afons/source/repos/TCC_Embraer_UIAPI/p2/Teste_QT/Teste_QT"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
