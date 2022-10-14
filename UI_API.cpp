@@ -123,6 +123,7 @@ st_ui_image* carregar_imagem_Controler(uint8_t cmd_controle, st_ui_image* val)
     case UI_Null: // Reseta MQ
         tmp = *val;
         tmp.byte_controle = cmd_controle;
+        tmp.byte_controle_anterior = cmd_controle;
         ui_api_debug("+[CTL][MQ] : Comando UI_Null - MQ carregar_imagem_Controler Resetada");
         break;
     case UI_Carregar_Imagem:
@@ -192,6 +193,7 @@ st_ui_image* transferir_imagem_GUI(uint8_t cmd_controle, st_ui_image* val) {
     case UI_Null: // Reseta MQ
         tmp = *val;
         tmp.byte_controle = cmd_controle;
+        tmp.byte_controle_anterior = cmd_controle;
         ui_api_debug("+[GUI][MQ] : Comando UI_Null - MQ transferir_imagem_GUI Resetada");
         break;
     case UI_Cancelar:
@@ -272,6 +274,7 @@ st_ui_image* transferir_imagem_Controler(uint8_t cmd_controle, st_ui_image* val)
     case UI_Null: // Reseta MQ
         tmp = *val;
         tmp.byte_controle = cmd_controle;
+        tmp.byte_controle_anterior = cmd_controle;
         ui_api_debug("+[CTL][MQ] : Comando UI_Null - MQ transferir_imagem_Controler Resetada");
         break;
     case UI_Iniciar_Transferencia:

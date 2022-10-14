@@ -25,6 +25,10 @@ private slots:
     void test_resposta_autenticacao();
     void test_reiniciar_mq_GUI();
     void test_reiniciar_mq_CTL();
+
+    void test_envio_diretorio_imagem();
+    void test_recebimento_diretorio_imagem();
+    void test_resposta_diretorio_imagem();
 };
 
 Teste_UI_API::Teste_UI_API()
@@ -126,6 +130,47 @@ void Teste_UI_API::test_reiniciar_mq_CTL()
     QCOMPARE(aut_controler.byte_controle,UI_Null);
     QCOMPARE(img_controler.byte_controle_anterior,UI_Null);
     QCOMPARE(img_controler.byte_controle,UI_Null);
+}
+
+void Teste_UI_API::test_envio_diretorio_imagem()
+{
+    img_gui.dir_img.diretorio_img = "/csr/afsfd/asdasd/afonso/qqq/892139291.bin";
+    img_gui.dir_img.tam_dir = sizeof("/csr/afsfd/asdasd/afonso/qqq/892139291.bin");
+
+    img_gui = *carregar_imagem_GUI(UI_Carregar_Imagem,&img_gui);
+    QCOMPARE(img_gui.byte_controle,UI_Aguardar);
+
+}
+void Teste_UI_API::test_recebimento_diretorio_imagem()
+{
+    uint8_t val = verificarFilas(&img_controler, &aut_controler,&con_controler, UI__CTL);
+    cout << "Diretorio: " << img_controler.dir_img.diretorio_img <<endl;
+    cout << "Tam: " << img_controler.dir_img.tam_dir <<endl;
+    QCOMPARE(val,RP_fila_imagem);
+    QCOMPARE(img_controler.byte_controle,UI_Carregar_Imagem);
+    img_controler = *carregar_imagem_Controler(UI_Ok,&img_controler);
+    QCOMPARE(img_controler.byte_controle,UI_Aguardar);
+    QCOMPARE(img_controler.dir_img.diretorio_img,"/csr/afsfd/asdasd/afonso/qqq/892139291.bin");
+    QCOMPARE(img_controler.dir_img.tam_dir,sizeof("/csr/afsfd/asdasd/afonso/qqq/892139291.bin"));
+    // Reset
+    img_controler = *carregar_imagem_Controler(UI_Null, &img_controler);
+    QCOMPARE(img_controler.byte_controle_anterior,UI_Null);
+    QCOMPARE(img_controler.byte_controle,UI_Null);
+}
+
+void Teste_UI_API::test_resposta_diretorio_imagem()
+{
+    uint8_t val = verificarFilas(&img_gui, &aut_gui,&con_gui, UI__GUI);
+    cout << "Diretorio: " << img_gui.dir_img.diretorio_img <<endl;
+    cout << "Tam: " << img_gui.dir_img.tam_dir <<endl;
+    QCOMPARE(val,RP_fila_imagem);
+    QCOMPARE(img_gui.byte_controle_anterior,UI_Carregar_Imagem);
+    QCOMPARE(img_gui.byte_controle,UI_Ok);
+
+    // Reset
+    img_gui = *carregar_imagem_GUI(UI_Null, &img_gui);
+    QCOMPARE(img_gui.byte_controle_anterior,UI_Null);
+    QCOMPARE(img_gui.byte_controle,UI_Null);
 }
 QTEST_APPLESS_MAIN(Teste_UI_API)
 

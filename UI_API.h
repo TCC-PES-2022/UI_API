@@ -6,7 +6,7 @@
 #include <iostream>
 #include <queue>
 #include <string>		// Necessário para usar strings
-
+#include "regex"
 #define PORT 8080
 
 #define TAM_DIR 100 // Tamanho máximo do diretório
@@ -48,13 +48,14 @@ enum  UI_INTERFACE {
 	//
 	UI_TOT_ESTADOS,
 };
-///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
+///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\
 ///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\
 
 // Estrutura destinada à informações sobre o Diretório
 typedef struct st_dir_img {
-	char diretorio_img[TAM_DIR];
-}st_img_ty;
+    char *diretorio_img;
+    uint16_t tam_dir;
+}st_dir_img;
 
 // Estrutura destinada ao campo de informações da imagem
 typedef struct st_info_img {
@@ -70,6 +71,7 @@ typedef struct st_ui_image {
 	st_dir_img dir_img;
 	uint16_t status_transferencia;
 	st_info_img img_info;
+
 }st_ui_image;
 
 ///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
@@ -99,7 +101,6 @@ typedef struct st_info_aut {
 }st_info_aut;
 // Estrutura Geral da Autenticação
 typedef struct st_ui_aut {
-
 	uint8_t byte_controle;
 	uint8_t byte_controle_anterior;
 	st_info_aut autenticao;
