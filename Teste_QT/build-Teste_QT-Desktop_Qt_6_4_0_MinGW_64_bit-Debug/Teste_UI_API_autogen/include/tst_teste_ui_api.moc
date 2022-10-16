@@ -25,19 +25,21 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_Teste_UI_API_t {
-    uint offsetsAndSizes[24];
+    uint offsetsAndSizes[28];
     char stringdata0[13];
     char stringdata1[23];
     char stringdata2[1];
     char stringdata3[23];
-    char stringdata4[24];
+    char stringdata4[27];
     char stringdata5[30];
-    char stringdata6[27];
-    char stringdata7[22];
-    char stringdata8[22];
-    char stringdata9[28];
-    char stringdata10[34];
-    char stringdata11[31];
+    char stringdata6[26];
+    char stringdata7[29];
+    char stringdata8[24];
+    char stringdata9[27];
+    char stringdata10[22];
+    char stringdata11[22];
+    char stringdata12[31];
+    char stringdata13[34];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_Teste_UI_API_t::offsetsAndSizes) + ofs), len 
@@ -47,27 +49,31 @@ Q_CONSTINIT static const qt_meta_stringdata_Teste_UI_API_t qt_meta_stringdata_Te
         QT_MOC_LITERAL(13, 22),  // "test_Inicializacao_GUI"
         QT_MOC_LITERAL(36, 0),  // ""
         QT_MOC_LITERAL(37, 22),  // "test_Inicializacao_CTL"
-        QT_MOC_LITERAL(60, 23),  // "test_envio_autenticacao"
-        QT_MOC_LITERAL(84, 29),  // "test_recebimento_autenticacao"
-        QT_MOC_LITERAL(114, 26),  // "test_resposta_autenticacao"
-        QT_MOC_LITERAL(141, 21),  // "test_reiniciar_mq_GUI"
-        QT_MOC_LITERAL(163, 21),  // "test_reiniciar_mq_CTL"
-        QT_MOC_LITERAL(185, 27),  // "test_envio_diretorio_imagem"
-        QT_MOC_LITERAL(213, 33),  // "test_recebimento_diretorio_im..."
-        QT_MOC_LITERAL(247, 30)   // "test_resposta_diretorio_imagem"
+        QT_MOC_LITERAL(60, 26),  // "test_envio_autenticacao_ok"
+        QT_MOC_LITERAL(87, 29),  // "test_envio_autenticacao_falha"
+        QT_MOC_LITERAL(117, 25),  // "test_cadastrar_usuario_ok"
+        QT_MOC_LITERAL(143, 28),  // "test_cadastrar_usuario_falha"
+        QT_MOC_LITERAL(172, 23),  // "test_remover_usuario_ok"
+        QT_MOC_LITERAL(196, 26),  // "test_remover_usuario_falha"
+        QT_MOC_LITERAL(223, 21),  // "test_reiniciar_mq_GUI"
+        QT_MOC_LITERAL(245, 21),  // "test_reiniciar_mq_CTL"
+        QT_MOC_LITERAL(267, 30),  // "test_envio_diretorio_imagem_ok"
+        QT_MOC_LITERAL(298, 33)   // "test_envio_diretorio_imagem_f..."
     },
     "Teste_UI_API",
     "test_Inicializacao_GUI",
     "",
     "test_Inicializacao_CTL",
-    "test_envio_autenticacao",
-    "test_recebimento_autenticacao",
-    "test_resposta_autenticacao",
+    "test_envio_autenticacao_ok",
+    "test_envio_autenticacao_falha",
+    "test_cadastrar_usuario_ok",
+    "test_cadastrar_usuario_falha",
+    "test_remover_usuario_ok",
+    "test_remover_usuario_falha",
     "test_reiniciar_mq_GUI",
     "test_reiniciar_mq_CTL",
-    "test_envio_diretorio_imagem",
-    "test_recebimento_diretorio_imagem",
-    "test_resposta_diretorio_imagem"
+    "test_envio_diretorio_imagem_ok",
+    "test_envio_diretorio_imagem_falha"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -78,7 +84,7 @@ Q_CONSTINIT static const uint qt_meta_data_Teste_UI_API[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -86,18 +92,22 @@ Q_CONSTINIT static const uint qt_meta_data_Teste_UI_API[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   74,    2, 0x08,    1 /* Private */,
-       3,    0,   75,    2, 0x08,    2 /* Private */,
-       4,    0,   76,    2, 0x08,    3 /* Private */,
-       5,    0,   77,    2, 0x08,    4 /* Private */,
-       6,    0,   78,    2, 0x08,    5 /* Private */,
-       7,    0,   79,    2, 0x08,    6 /* Private */,
-       8,    0,   80,    2, 0x08,    7 /* Private */,
-       9,    0,   81,    2, 0x08,    8 /* Private */,
-      10,    0,   82,    2, 0x08,    9 /* Private */,
-      11,    0,   83,    2, 0x08,   10 /* Private */,
+       1,    0,   86,    2, 0x08,    1 /* Private */,
+       3,    0,   87,    2, 0x08,    2 /* Private */,
+       4,    0,   88,    2, 0x08,    3 /* Private */,
+       5,    0,   89,    2, 0x08,    4 /* Private */,
+       6,    0,   90,    2, 0x08,    5 /* Private */,
+       7,    0,   91,    2, 0x08,    6 /* Private */,
+       8,    0,   92,    2, 0x08,    7 /* Private */,
+       9,    0,   93,    2, 0x08,    8 /* Private */,
+      10,    0,   94,    2, 0x08,    9 /* Private */,
+      11,    0,   95,    2, 0x08,   10 /* Private */,
+      12,    0,   96,    2, 0x08,   11 /* Private */,
+      13,    0,   97,    2, 0x08,   12 /* Private */,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -125,21 +135,25 @@ Q_CONSTINIT const QMetaObject Teste_UI_API::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'test_Inicializacao_CTL'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'test_envio_autenticacao'
+        // method 'test_envio_autenticacao_ok'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'test_recebimento_autenticacao'
+        // method 'test_envio_autenticacao_falha'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'test_resposta_autenticacao'
+        // method 'test_cadastrar_usuario_ok'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'test_cadastrar_usuario_falha'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'test_remover_usuario_ok'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'test_remover_usuario_falha'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'test_reiniciar_mq_GUI'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'test_reiniciar_mq_CTL'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'test_envio_diretorio_imagem'
+        // method 'test_envio_diretorio_imagem_ok'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'test_recebimento_diretorio_imagem'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'test_resposta_diretorio_imagem'
+        // method 'test_envio_diretorio_imagem_falha'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -153,14 +167,16 @@ void Teste_UI_API::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         switch (_id) {
         case 0: _t->test_Inicializacao_GUI(); break;
         case 1: _t->test_Inicializacao_CTL(); break;
-        case 2: _t->test_envio_autenticacao(); break;
-        case 3: _t->test_recebimento_autenticacao(); break;
-        case 4: _t->test_resposta_autenticacao(); break;
-        case 5: _t->test_reiniciar_mq_GUI(); break;
-        case 6: _t->test_reiniciar_mq_CTL(); break;
-        case 7: _t->test_envio_diretorio_imagem(); break;
-        case 8: _t->test_recebimento_diretorio_imagem(); break;
-        case 9: _t->test_resposta_diretorio_imagem(); break;
+        case 2: _t->test_envio_autenticacao_ok(); break;
+        case 3: _t->test_envio_autenticacao_falha(); break;
+        case 4: _t->test_cadastrar_usuario_ok(); break;
+        case 5: _t->test_cadastrar_usuario_falha(); break;
+        case 6: _t->test_remover_usuario_ok(); break;
+        case 7: _t->test_remover_usuario_falha(); break;
+        case 8: _t->test_reiniciar_mq_GUI(); break;
+        case 9: _t->test_reiniciar_mq_CTL(); break;
+        case 10: _t->test_envio_diretorio_imagem_ok(); break;
+        case 11: _t->test_envio_diretorio_imagem_falha(); break;
         default: ;
         }
     }
@@ -186,13 +202,13 @@ int Teste_UI_API::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 12)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 10;
+        _id -= 12;
     }
     return _id;
 }
