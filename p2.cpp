@@ -18,7 +18,7 @@ void* GUI(void* arg)
     static st_ui_conexao con_gui;
 
     if (iniciar_UI_interface(&img_gui,&aut_gui,&con_gui,UI__GUI)) {
-        //img_gui.byte_controle = UI_Carregar_Imagem; // APENAS PARA TESTES
+        img_gui.byte_controle = UI_Carregar_Imagem; // APENAS PARA TESTES
         //aut_gui.byte_controle = UI_Cadastrar; // APENAS PARA TESTES
         //con_gui.byte_controle = UI_EncerrarConexao;
         val_teste = UI_Carregar_Imagem;

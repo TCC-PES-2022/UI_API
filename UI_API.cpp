@@ -15,8 +15,19 @@ queue<st_ui_conexao> fila_conexao_Controler;
 
 pthread_mutex_t lock_print;
 
-///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
-///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\
+/*--Prototipos--*/
+st_ui_image* carregar_imagem_GUI(uint8_t cmd_controle, st_ui_image* val);
+st_ui_image* carregar_imagem_Controler(uint8_t cmd_controle, st_ui_image* val);
+st_ui_image* transferir_imagem_GUI(uint8_t cmd_controle, st_ui_image* val);
+st_ui_image* transferir_imagem_Controler(uint8_t cmd_controle, st_ui_image* val);
+st_ui_conexao* conexoes_GUI(uint8_t cmd_controle, st_ui_conexao* val);
+st_ui_conexao* conexoes_Controler(uint8_t cmd_controle, st_ui_conexao* val);
+st_ui_aut* verificar_autenticacao_GUI(uint8_t cmd_controle, st_ui_aut* val);
+st_ui_aut* verificar_autenticacao_Controler(uint8_t cmd_controle, st_ui_aut* val);
+uint8_t verificarFilas(st_ui_image* val, st_ui_aut *val2,st_ui_conexao *val3,  uint8_t thread);
+int iniciar_UI_interface(st_ui_image* val, st_ui_aut* val2, st_ui_conexao *val3, uint8_t thread);
+int ui_api_debug(string txt);
+/*--------------*/
 
 
 
@@ -27,9 +38,7 @@ st_ui_image* carregar_imagem_GUI(uint8_t cmd_controle, st_ui_image* val)
     // *val			-> Ponteiro da estrutura da imagem
     // Return: Estrutura st_ui_image contendo todas as informações referentes a imagem e o estado da ultima alteração feita pela MQ.
 
-    static st_ui_image tmp = { 0 };
-    static uint8_t cmd_anterior = 0;
-    //tmp.byte_controle_anterior = val->byte_controle_anterior;
+    static st_ui_image tmp;
 
     switch (cmd_controle)
     {
@@ -92,9 +101,8 @@ st_ui_image* carregar_imagem_GUI(uint8_t cmd_controle, st_ui_image* val)
     }
     return &tmp;
 }
-///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
-///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\
-
+/*----*/
+/*----*/
 
 
 
@@ -106,8 +114,6 @@ st_ui_image* carregar_imagem_Controler(uint8_t cmd_controle, st_ui_image* val)
     // Return: Estrutura st_ui_image contendo todas as informações referentes a imagem e o estado da ultima alteração feita pela MQ.
 
     static st_ui_image tmp;
-    static uint8_t cmd_anterior = 0;
-
     switch (cmd_controle)
     {
     case UI_Falha:
@@ -172,9 +178,8 @@ st_ui_image* carregar_imagem_Controler(uint8_t cmd_controle, st_ui_image* val)
     return &tmp;
 }
 
-///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
-///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\
-
+/*----*/
+/*----*/
 
 st_ui_image* transferir_imagem_GUI(uint8_t cmd_controle, st_ui_image* val) {
 
@@ -184,7 +189,6 @@ st_ui_image* transferir_imagem_GUI(uint8_t cmd_controle, st_ui_image* val) {
     // Return: Estrutura st_ui_image contendo todas as informações referentes a imagem e o estado da ultima alteração feita pela MQ.
 
     static st_ui_image& tmp = *val;
-    static uint8_t cmd_anterior = 0;
     switch (cmd_controle)
     {
     case UI_Falha:
@@ -250,9 +254,8 @@ st_ui_image* transferir_imagem_GUI(uint8_t cmd_controle, st_ui_image* val) {
     }
     return &tmp;
 }
-///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
-///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\
-
+/*----*/
+/*----*/
 st_ui_image* transferir_imagem_Controler(uint8_t cmd_controle, st_ui_image* val) {
 
     //Máquina de Estados referente ao comando de Transferir Imagem
@@ -261,7 +264,6 @@ st_ui_image* transferir_imagem_Controler(uint8_t cmd_controle, st_ui_image* val)
     // Return: Estrutura st_ui_image contendo todas as informações referentes a imagem e o estado da ultima alteração feita pela MQ.
 
     static st_ui_image tmp;
-    static uint8_t cmd_anterior = 0;
     tmp.byte_controle_anterior = val->byte_controle_anterior;
     if (tmp.byte_controle_anterior != UI_Aguardar)
         tmp.byte_controle_anterior = cmd_controle;
@@ -330,9 +332,8 @@ st_ui_image* transferir_imagem_Controler(uint8_t cmd_controle, st_ui_image* val)
     return &tmp;
 }
 
-///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
-///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\
-
+/*----*/
+/*----*/
 int iniciar_UI_interface(st_ui_image* val, st_ui_aut* val2, st_ui_conexao *val3, uint8_t thread)
 {
     //Função de inicialização da UI_Interface
@@ -362,16 +363,14 @@ int iniciar_UI_interface(st_ui_image* val, st_ui_aut* val2, st_ui_conexao *val3,
     return stats;
 }
 
-///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
-///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\
-
+/*----*/
+/*----*/
 st_ui_conexao* conexoes_GUI(uint8_t cmd_controle, st_ui_conexao* val) {
     // Função que deve requisitar a lista de conexões.
     // cmd_controle -> Estado MQ de solicitação
     // *val			-> Ponteiro da estrutura da conexao
     // Return: Estrutura st_info_conexao contendo todas as informações referentes a imagem e o estado da ultima alteração feita pela MQ.
     static st_ui_conexao& tmp = *val;
-    static uint8_t cmd_anterior = 0;
     switch (cmd_controle)
     {
     case UI_Null: // Reseta MQ
@@ -421,9 +420,8 @@ st_ui_conexao* conexoes_GUI(uint8_t cmd_controle, st_ui_conexao* val) {
     }
     return &tmp;
 }
-///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
-///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\
-
+/*----*/
+/*----*/
 st_ui_conexao* conexoes_Controler(uint8_t cmd_controle, st_ui_conexao* val){
 
     // Função que deve requisitar o estabelecimento da conexão.
@@ -432,7 +430,6 @@ st_ui_conexao* conexoes_Controler(uint8_t cmd_controle, st_ui_conexao* val){
     // Return: Estrutura st_info_conexao contendo todas as informações referentes a imagem e o estado da ultima alteração feita pela MQ.
 
     st_ui_conexao& tmp = *val;
-    static uint8_t cmd_anterior = 0;
     switch (cmd_controle)
     {
     case UI_Falha:
@@ -465,9 +462,8 @@ st_ui_conexao* conexoes_Controler(uint8_t cmd_controle, st_ui_conexao* val){
 }
 
 
-///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
-///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\
-
+/*----*/
+/*----*/
 
 st_ui_aut* verificar_autenticacao_GUI(uint8_t cmd_controle, st_ui_aut* val)
 {
@@ -477,7 +473,6 @@ st_ui_aut* verificar_autenticacao_GUI(uint8_t cmd_controle, st_ui_aut* val)
     // Return: Estrutura st_ui_aut contendo todas as informações referentes a imagem e o estado da ultima alteração feita pela MQ.
 
     static st_ui_aut & tmp = *val;
-    static uint8_t cmd_anterior;
     switch (cmd_controle)
     {
     case UI_EnviarLogin:
@@ -524,9 +519,8 @@ st_ui_aut* verificar_autenticacao_GUI(uint8_t cmd_controle, st_ui_aut* val)
     // memcpy(val,tmp,sizeof(st_ui_aut));
     return &tmp;
 }
-///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
-///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\
-
+/*----*/
+/*----*/
 
 st_ui_aut* verificar_autenticacao_Controler(uint8_t cmd_controle, st_ui_aut* val)
 {
@@ -536,7 +530,6 @@ st_ui_aut* verificar_autenticacao_Controler(uint8_t cmd_controle, st_ui_aut* val
     // Return: Estrutura st_ui_aut contendo todas as informações referentes a imagem e o estado da ultima alteração feita pela MQ.
 
     static st_ui_aut& tmp = *val;
-    static uint8_t cmd_anterior;
     switch (cmd_controle)
     {
     case UI_EnviarLogin:
@@ -572,9 +565,8 @@ st_ui_aut* verificar_autenticacao_Controler(uint8_t cmd_controle, st_ui_aut* val
     }
     return &tmp;
 }
-///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
-///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\
-
+/*----*/
+/*----*/
 
 uint8_t verificarFilas(st_ui_image* val, st_ui_aut *val2,st_ui_conexao *val3,  uint8_t thread)
 {
@@ -646,10 +638,8 @@ uint8_t verificarFilas(st_ui_image* val, st_ui_aut *val2,st_ui_conexao *val3,  u
     return 0;
 }
 
-///\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\  //\\ 
-///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\///\\\
-
-
+/*----*/
+/*----*/
 int ui_api_debug(string txt)
 {
 #ifdef DEBUG_UI_API
