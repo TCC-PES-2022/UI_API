@@ -8,7 +8,7 @@
 #include <string>
 
 
-#define UI_API_VERSION 0.0.3
+#define UI_API_VERSION 0.0.4
 
 #define TAM_MAX_LIST 10
 #define TAM_DIR      100 // Tamanho máximo do diretório
@@ -74,11 +74,8 @@ typedef struct st_dir_img {
 // Estrutura destinada ao campo de informações da imagem
 typedef struct st_info_img {
     // tamanho máximo de envio por requisição
-    char *tabela_de_img[TAM_MAX_LIST];
-    // posição solicitada da matriz de imagens dentro do diretorio
-    uint16_t offset_imagens;
-    // quantidade máxima de imagens dentro do diretorio
-    uint16_t quantidade_de_imagens_total;
+    char **tabela_de_img;
+    int tam;
 } st_info_img;
 
 // Estrutura Das informações sobre a Imagem
