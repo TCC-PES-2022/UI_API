@@ -8,7 +8,7 @@
 #include <string>
 
 
-#define UI_API_VERSION 0.0.4
+#define UI_API_VERSION 0.0.5
 
 #define TAM_MAX_LIST 10
 #define TAM_DIR      100 // Tamanho máximo do diretório
@@ -77,6 +77,11 @@ typedef struct st_info_img {
     char **tabela_de_img;
     int tam;
 } st_info_img;
+// Estrutura da transferencia de imagem
+typedef struct st_transf_img{
+    char *prt_json;
+    uint8_t status_transf;
+}st_transf_img;
 
 // Estrutura Das informações sobre a Imagem
 typedef struct st_ui_image {
@@ -86,7 +91,7 @@ typedef struct st_ui_image {
     // diretorio a ser enviado para a pasta
     st_dir_img dir_img;
     // 0 - 1000 (1 CASA DECIMAL DE PRECISÃO)
-    uint16_t status_transferencia;
+    st_transf_img img_transf;
     // ESTRUTURA QUE CONTEM A LISTA DE IMAGENS DO DIRETÓRIO
     st_info_img img_info;
 } st_ui_image;
