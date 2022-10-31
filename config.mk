@@ -1,7 +1,7 @@
 BIN        = p2
 CC         = g++
 AR         = ar
-CFLAGS     = -Wall -Wextra -O2 -fPIC
+CFLAGS     = -Wall -Wextra -fPIC
 COVFLAGS   = -fprofile-arcs -ftest-coverage -g
 LDFLAGS    = -lgcrypt -lgpg-error
 COVLDFLAGS = -lgcov --coverage
