@@ -8,7 +8,7 @@
 #include <string>
 
 
-#define UI_API_VERSION 0.0.5
+#define UI_API_VERSION 0.0.6
 
 #define TAM_MAX_LIST 10
 #define TAM_DIR      100 // Tamanho máximo do diretório
